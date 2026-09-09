@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific files
+venv8851/
+cache/
+outputs/
+Olympics_Tokyo_tweets.csv
