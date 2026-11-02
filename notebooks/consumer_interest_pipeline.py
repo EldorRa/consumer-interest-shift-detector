@@ -109,8 +109,12 @@ from sklearn.metrics import adjusted_rand_score
 seed = 8851
 np.random.seed(seed)
 
-out_folder = Path("outputs"); out_folder.mkdir(exist_ok=True)
-cache_folder = Path("cache"); cache_folder.mkdir(exist_ok=True)
+project_root = Path.cwd().parent if Path.cwd().name == "notebooks" else Path.cwd()
+
+out_folder = project_root / "outputs"
+out_folder.mkdir(exist_ok=True)
+cache_folder = project_root / "cache"
+cache_folder.mkdir(exist_ok=True)
 
 print("python               :", sys.version.split()[0])
 for package in ["pandas", "numpy", "scikit-learn", "bertopic",
@@ -134,7 +138,7 @@ print("random seed          :", seed)
 # | `slice_min_cluster` | 5 | Deviation from BERTrend §4.2, documented in §15 |
 
 # %%
-source_file = "Olympics_Tokyo_tweets.csv"
+source_file = source_file = project_root / "data" / "Olympics_Tokyo_tweets.csv"
 
 min_words             = 4
 min_topic_size        = 15
