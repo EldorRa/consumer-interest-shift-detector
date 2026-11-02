@@ -1,0 +1,15 @@
+Assessment,Metric,Value
+RQ1,Topics identified,73
+RQ1,Coherence (UMass),-2.097
+RQ1,Topic diversity,0.844
+RQ1,Seed consistency,0.633
+RQ1,Outlier share,37.6%
+RQ1,Candidate topics,8
+RQ1,Qualifying topics,1
+RQ2,External correspondence (valid queries),4/4
+RQ2,"Correspondence, qualifying topic",1/1
+RQ3,Onset observable,1/8
+RQ3,Lead or lag estimated,1/8
+RQ3,Lead or lag from a valid query,0/8
+Validation,Mean detectability lag (days),1.0
+Validation,Candidates recovered by BERTrend,8/8

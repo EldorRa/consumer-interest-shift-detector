@@ -1,0 +1,11 @@
+# Count this repository as Python, not HTML. The executed notebook export in
+# docs/ is evidence, not source, and would otherwise dominate the language bar.
+docs/executed_notebook.html  linguist-vendored
+*.ipynb                      linguist-language=Jupyter\ Notebook
+
+# Notebooks diff badly by default. The committed .py export is what to read.
+*.ipynb  -diff
+
+# Normalise line endings: the analysis was run on Windows, reviewed elsewhere.
+* text=auto eol=lf
+*.csv text eol=lf

@@ -1,0 +1,9 @@
+Topic,Query,Query Validity,Twitter Onset,Trends Onset,Lead (days),Interpretation
+71,leotards,valid,,2021-07-25,,Twitter onset indeterminate
+22,unitards,valid,,2021-07-25,,Twitter onset indeterminate
+24,unitards,valid,,2021-07-25,,Twitter onset indeterminate
+40,/g/11h582cpmh,valid,,2021-07-25,,Twitter onset indeterminate
+66,wearing,invalid,,2021-07-26,,Twitter onset indeterminate
+27,suits,invalid,,2021-07-25,,Twitter onset indeterminate
+50,trampoline,ambiguous,2021-07-30,2021-07-25,-5.0,Trends earlier
+18,career,invalid,,2021-08-04,,Twitter onset indeterminate

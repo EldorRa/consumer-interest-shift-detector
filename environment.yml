@@ -1,0 +1,27 @@
+# conda alternative to requirements.txt.
+#   conda env create -f environment.yml
+#   conda activate comp8851
+#
+# hdbscan and umap-learn build from source on pip under some Windows
+# toolchains; conda-forge ships wheels, which is the reason this file exists.
+name: comp8851
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - statsmodels
+  - hdbscan
+  - umap-learn
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+      - bertopic==0.17.4
+      - sentence-transformers==6.0.0
+      - pytrends==4.9.2
+      - jupytext

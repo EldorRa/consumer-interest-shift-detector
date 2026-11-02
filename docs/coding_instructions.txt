@@ -1,0 +1,53 @@
+CODING INSTRUCTIONS
+
+Label each document 2, 1 or 0.
+
+2 - CONSUMER INTEREST
+    The author expresses their own searching, wanting, buying, using, price or
+    brand interest, viewing, or participation.
+      "where can I buy one of those unitards"
+      "next olympics can you add streaming bundles? I'd pay a decent amount"
+      "thinking of signing my daughter up for gymnastics classes"
+
+1 - PRODUCT MENTION
+    A product, brand or service is present, but the author expresses no
+    consumer engagement with it.
+      "those unitards are really well designed"
+      "the Nike leotards look different this year"
+
+0 - DESCRIPTION OR REPORTING
+    Describes an event, athlete behaviour, competition result or news.
+      "German Olympic gymnastics team, tired of 'sexualization,' wears unitards"
+      "For decades, female gymnasts have worn bikini-cut leotards"
+      "Hashimoto wins gold in the all-around final"
+
+The distinction between 2 and 0 is whether the AUTHOR engages as a consumer or
+reports what someone else did. A headline describing what athletes wore is 0,
+however much product vocabulary it contains.
+
+Code independently. Do not discuss while coding. Do not sort the file.
+
+
+--------------------------------------------------------------------------
+NOTE ON THIS FILE
+
+This is the instrument as issued, written to outputs/coding_instructions.txt by
+the generator cell in section 16 of the notebook and reproduced here.
+
+It replaced an earlier wording that was read as "mentions a product". Under that
+wording 118 of 150 documents were labelled 1 and none were labelled 2, which
+produced an unweighted kappa of 0.852 that reflected shared misreading rather
+than agreement. That round was discarded and both coders recoded the full sheet
+against the wording above. The clarifying sentence about the author's engagement,
+and the three label-0 examples drawn from real headlines in the corpus, were
+added as a direct result.
+
+The sheet issued to each coder contained three columns: topic, text and an empty
+label column. The screen decision (screen_flagged) was withheld, so neither
+coder could see which topics the behavioural screen had nominated. The 150 rows
+were shuffled with a fixed seed so that topic order carried no information.
+
+Composition: 15 documents from each of the 8 candidate topics, and 3 documents
+from each of 10 non-candidate topics drawn at random. The non-candidate
+documents are what make the screen's precision estimable at all; without them
+every sampled document would carry screen_flagged = 1.

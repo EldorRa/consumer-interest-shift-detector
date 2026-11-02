@@ -1,0 +1,9 @@
+Topic,BERTrend Topic,Similarity,BERTrend Flagged,Framework Detection,Difference (days),Framework Onset
+71,10,0.972,2021-07-26,2021-07-27,-1,indeterminate
+22,7,0.947,2021-07-26,2021-07-26,0,indeterminate
+24,1,0.822,2021-07-26,2021-07-26,0,indeterminate
+40,23,0.916,2021-07-27,2021-07-27,0,indeterminate
+66,1,0.875,2021-07-26,2021-07-27,-1,indeterminate
+27,1,0.997,2021-07-26,2021-07-26,0,indeterminate
+50,0,0.779,2021-07-26,2021-07-31,-5,2021-07-30
+18,0,0.812,2021-07-26,2021-07-26,0,indeterminate

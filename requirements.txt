@@ -1,0 +1,26 @@
+#  - pinned to the versions of the reported run.
+#
+# Python 3.11 is required. BERTopic's dependency set does not resolve on 3.13,
+# and sentence-transformers 6.0 is above the floor for 3.9.
+#
+# A CUDA build of PyTorch is optional and roughly 4x faster on the embedding
+# steps. Install it BEFORE this file, or the CPU-only wheel from PyPI wins:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+numpy==2.4.6
+pandas==3.0.5
+scipy
+scikit-learn==1.9.0
+matplotlib
+
+bertopic==0.17.4
+sentence-transformers==6.0.0
+umap-learn==0.5.12
+hdbscan==0.8.44
+
+statsmodels
+pytrends==4.9.2
+
+jupyter
+ipykernel
+jupytext

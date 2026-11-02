@@ -1,0 +1,4 @@
+Model,Setting,Topics,Coherence,Diversity,Seed Consistency,Outlier Share
+BERTopic A,min_topic_size=25,48,-2.273,0.823,0.433,37.7%
+BERTopic B,min_topic_size=15,73,-2.097,0.844,0.633,37.6%
+NMF,n_topics=48,48,-3.823,0.82,0.741,n/a

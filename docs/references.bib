@@ -1,0 +1,145 @@
+% Bibliography for the report.
+%
+% Overleaf: put this file beside main.tex, then at the end of the document add
+%   \bibliographystyle{apalike}
+%   \bibliography{references}
+% and cite with \citep{key} for a parenthetical citation or \citet{key} when
+% the author is the subject of the sentence.
+
+% --- Methods the framework is built on -------------------------------------
+
+@article{grootendorst2022bertopic,
+  title   = {{BERTopic}: Neural topic modeling with a class-based {TF-IDF} procedure},
+  author  = {Grootendorst, Maarten},
+  journal = {arXiv preprint arXiv:2203.05794},
+  year    = {2022},
+  doi     = {10.48550/arXiv.2203.05794}
+}
+
+@article{mcinnes2018umap,
+  title   = {{UMAP}: Uniform manifold approximation and projection for dimension reduction},
+  author  = {McInnes, Leland and Healy, John and Melville, James},
+  journal = {arXiv preprint arXiv:1802.03426},
+  year    = {2018},
+  doi     = {10.48550/arXiv.1802.03426}
+}
+
+@inproceedings{mcinnes2017hdbscan,
+  title     = {{HDBSCAN}: Hierarchical density based clustering},
+  author    = {McInnes, Leland and Healy, John and Astels, Steve},
+  booktitle = {Journal of Open Source Software},
+  volume    = {2},
+  number    = {11},
+  pages     = {205},
+  year      = {2017},
+  doi       = {10.21105/joss.00205}
+}
+
+@inproceedings{reimers2019sentencebert,
+  title     = {{Sentence-BERT}: Sentence embeddings using {Siamese} {BERT}-networks},
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural
+               Language Processing},
+  pages     = {3982--3992},
+  year      = {2019},
+  doi       = {10.18653/v1/D19-1410}
+}
+
+% --- The published baseline -------------------------------------------------
+
+@article{boutaleb2024bertrend,
+  title   = {{BERTrend}: Neural topic modeling for emerging trends detection},
+  author  = {Boutaleb, Allaa and Picault, Jerome and Grosjean, Guillaume},
+  journal = {arXiv preprint arXiv:2411.05930},
+  year    = {2024},
+  doi     = {10.48550/arXiv.2411.05930}
+}
+
+% --- Measurement and agreement ---------------------------------------------
+
+@article{cohen1960kappa,
+  title   = {A coefficient of agreement for nominal scales},
+  author  = {Cohen, Jacob},
+  journal = {Educational and Psychological Measurement},
+  volume  = {20},
+  number  = {1},
+  pages   = {37--46},
+  year    = {1960},
+  doi     = {10.1177/001316446002000104}
+}
+
+@article{feinstein1990kappa,
+  title   = {High agreement but low kappa: {I}. The problems of two paradoxes},
+  author  = {Feinstein, Alvan R. and Cicchetti, Domenic V.},
+  journal = {Journal of Clinical Epidemiology},
+  volume  = {43},
+  number  = {6},
+  pages   = {543--549},
+  year    = {1990},
+  doi     = {10.1016/0895-4356(90)90158-L}
+}
+
+@article{wilson1927interval,
+  title   = {Probable inference, the law of succession, and statistical inference},
+  author  = {Wilson, Edwin B.},
+  journal = {Journal of the American Statistical Association},
+  volume  = {22},
+  number  = {158},
+  pages   = {209--212},
+  year    = {1927},
+  doi     = {10.1080/01621459.1927.10502953}
+}
+
+@article{hubert1985ari,
+  title   = {Comparing partitions},
+  author  = {Hubert, Lawrence and Arabie, Phipps},
+  journal = {Journal of Classification},
+  volume  = {2},
+  number  = {1},
+  pages   = {193--218},
+  year    = {1985},
+  doi     = {10.1007/BF01908075}
+}
+
+@inproceedings{mimno2011coherence,
+  title     = {Optimizing semantic coherence in topic models},
+  author    = {Mimno, David and Wallach, Hanna M. and Talley, Edmund and
+               Leenders, Miriam and McCallum, Andrew},
+  booktitle = {Proceedings of the 2011 Conference on Empirical Methods in Natural
+               Language Processing},
+  pages     = {262--272},
+  year      = {2011}
+}
+
+% --- Applied topic modelling, for comparison -------------------------------
+
+@article{mendonca2024topic,
+  title   = {Topic extraction: {BERTopic}'s insight into the 117th {Congress}'s
+             {Twitterverse}},
+  author  = {Mendon{\c{c}}a, Mateus and Figueira, {\'A}lvaro},
+  journal = {Informatics},
+  volume  = {11},
+  number  = {1},
+  pages   = {8},
+  year    = {2024},
+  doi     = {10.3390/informatics11010008}
+}
+
+% --- Data ------------------------------------------------------------------
+
+@misc{singh2021tokyo,
+  title        = {Olympics ({Tokyo} 2021) tweets 300,000+},
+  author       = {Singh, Amit Pratap},
+  year         = {2021},
+  howpublished = {Kaggle},
+  note         = {Data set},
+  url          = {https://www.kaggle.com/datasets/amritpal333/olympics-tokyo-2021-tweets}
+}
+
+@misc{googletrends,
+  title        = {Google {Trends}},
+  author       = {{Google}},
+  year         = {2026},
+  howpublished = {\url{https://trends.google.com/}},
+  note         = {Accessed via the pytrends client}
+}

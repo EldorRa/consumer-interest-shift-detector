@@ -1,0 +1,28 @@
+CODING INSTRUCTIONS
+
+Label each document 2, 1 or 0.
+
+2 - CONSUMER INTEREST
+    The author expresses their own searching, wanting, buying, using, price or
+    brand interest, viewing, or participation.
+      "where can I buy one of those unitards"
+      "next olympics can you add streaming bundles? I'd pay a decent amount"
+      "thinking of signing my daughter up for gymnastics classes"
+
+1 - PRODUCT MENTION
+    A product, brand or service is present, but the author expresses no
+    consumer engagement with it.
+      "those unitards are really well designed"
+      "the Nike leotards look different this year"
+
+0 - DESCRIPTION OR REPORTING
+    Describes an event, athlete behaviour, competition result or news.
+      "German Olympic gymnastics team, tired of 'sexualization,' wears unitards"
+      "For decades, female gymnasts have worn bikini-cut leotards"
+      "Hashimoto wins gold in the all-around final"
+
+The distinction between 2 and 0 is whether the AUTHOR engages as a consumer or
+reports what someone else did. A headline describing what athletes wore is 0,
+however much product vocabulary it contains.
+
+Code independently. Do not discuss while coding. Do not sort the file.

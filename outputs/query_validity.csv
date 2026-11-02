@@ -1,0 +1,9 @@
+Topic,Query,Validity,Assessment
+71,leotards,valid,denotes competitive gymnastics apparel
+22,unitards,valid,denotes the specific garment discussed in the topic
+24,unitards,valid,"as above; duplicates the query for topic 22, so the two do not constitute independent observations"
+40,/g/11h582cpmh,valid,"Google Trends entity for the streaming service, disambiguated from the bird"
+66,wearing,invalid,"generic verb, no consumer concept"
+27,suits,invalid,denotes business attire and legal proceedings more frequently than gymnastics apparel
+50,trampoline,ambiguous,denotes both the apparatus as a consumer product and the Olympic discipline
+18,career,invalid,"generic term, unrelated to any consumer concept"

@@ -1,0 +1,9 @@
+Topic,Query,Type,Geography,Language,Aggregation,Baseline,Criterion
+71,leotards,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+22,unitards,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+24,unitards,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+40,/g/11h582cpmh,entity,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+66,wearing,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+27,suits,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+50,trampoline,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
+18,career,search term,worldwide,en-US,daily,2021-06-10 to 2021-07-24,baseline mean + 1.5 SD
