@@ -42,6 +42,12 @@ accent_alt = "#0f766e"  # emphasis in the model comparison, so that it does not
                         # read as a continuation of the preceding figure
 neutral = "#cbd5e1"     # unemphasised bars
 neutral_line = "#94a3b8"  # unemphasised series
+
+# External onset criterion, as standard deviations above the baseline mean.
+# This MUST match the value used in section 13 of the notebook. It is named
+# here, and printed in the legend, so that a mismatch is visible in the figure
+# rather than hidden in it.
+threshold_sd = 1.5
 gap_band = "#fca5a5"
 ink = "#1e293b"
 
@@ -322,8 +328,9 @@ def figure_6():
                   color=neutral, alpha=0.22, linewidth=0, label="Baseline period")
     lower.axhline(baseline.mean(), color=ink, linestyle="-", linewidth=0.8,
                   label="Baseline mean")
-    lower.axhline(baseline.mean() + 2 * baseline.std(), color=ink,
-                  linestyle="--", linewidth=0.8, label="Threshold")
+    lower.axhline(baseline.mean() + threshold_sd * baseline.std(), color=ink,
+                  linestyle="--", linewidth=0.8,
+                  label=f"Threshold (mean + {threshold_sd} SD)")
     lower.axvline(window_start, color=ink, linewidth=1,
                   label="Observation window opens")
     lower.set_ylabel("Relative search interest\n(index 0–100)", fontsize=8)
