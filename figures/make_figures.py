@@ -88,17 +88,49 @@ def save(fig, stem):
     plt.close(fig)
 
 
-def shade_gaps(axis, all_days, observed, label=True):
-    """Mark uncollected dates. A gap is not a zero and must not look like one."""
-    missing = [d for d in all_days if d not in observed]
-    if not missing:
-        return
-    first = True
-    for day in missing:
-        axis.axvspan(day - pd.Timedelta(hours=12), day + pd.Timedelta(hours=12),
-                     color=gap_band, alpha=0.30, linewidth=0,
-                     label="Not collected" if (first and label) else None)
-        first = False
+def collection_status():
+    """Collected dates and the window start, taken from the coverage artefact.
+
+    A date can be in one of three states, and conflating the last two is the
+    mistake this function exists to prevent:
+      collected and usable   - a prevalence value exists
+      collected but excluded - fewer than the minimum documents, so the value
+                               is NaN; 25 July is the only such date
+      not collected          - never sampled
+    Deriving "collected" from a non-null prevalence value silently merges the
+    second state into the third.
+    """
+    frame = load("daily_coverage.csv")
+    date_col = column(frame, "Date", "day")
+    status_col = column(frame, "Status")
+    frame[date_col] = pd.to_datetime(frame[date_col])
+    collected = set(frame.loc[frame[status_col].astype(str).str.strip().str.lower()
+                              == "collected", date_col])
+    if not collected:
+        sys.exit("daily_coverage.csv marks no date as Collected")
+    return collected, min(collected)
+
+
+def shade_gaps(axis, all_days, collected, usable=None, label=True):
+    """Mark dates that carry no plotted value, distinguishing why.
+
+    A gap is not a zero, and a date excluded for insufficient data is not a
+    date that was never sampled.
+    """
+    usable = collected if usable is None else usable
+    first_missing, first_excluded = True, True
+    for day in all_days:
+        if day not in collected:
+            axis.axvspan(day - pd.Timedelta(hours=12), day + pd.Timedelta(hours=12),
+                         color=gap_band, alpha=0.30, linewidth=0,
+                         label="Not collected" if (first_missing and label) else None)
+            first_missing = False
+        elif day not in usable:
+            axis.axvspan(day - pd.Timedelta(hours=12), day + pd.Timedelta(hours=12),
+                         color=neutral, alpha=0.55, linewidth=0,
+                         label=("Excluded: insufficient documents"
+                                if (first_excluded and label) else None))
+            first_excluded = False
 
 
 # ---------------------------------------------------------------------------
@@ -206,16 +238,18 @@ def figure_4():
         sys.exit("no candidate topic matched a column in prevalence.csv; "
                  f"columns are {list(frame.columns)[:12]}...")
 
+    collected, _ = collection_status()
+
     rows = int(np.ceil(len(topics) / 4))
     fig, axes = plt.subplots(rows, 4, figsize=(10, 2.5 * rows), sharex=True)
     axes = np.atleast_1d(axes).ravel()
 
-    for axis, topic in zip(axes, topics):
+    for index, (axis, topic) in enumerate(zip(axes, topics)):
         series = pd.to_numeric(frame[topic], errors="coerce")
-        observed = set(frame.loc[series.notna(), date_col])
+        usable = set(frame.loc[series.notna(), date_col])
         is_qualifying = str(topic) in qualifying
 
-        shade_gaps(axis, all_days, observed, label=False)
+        shade_gaps(axis, all_days, collected, usable, label=(index == 0))
         axis.plot(frame[date_col], series, "o-",
                   color=accent if is_qualifying else neutral_line,
                   linewidth=1.8 if is_qualifying else 1.1, markersize=3.5)
@@ -231,6 +265,13 @@ def figure_4():
 
     for axis in axes[len(topics):]:
         axis.set_visible(False)
+
+    handles, labels = axes[0].get_legend_handles_labels()
+    if handles:
+        fig.legend(handles, labels, frameon=False, fontsize=8,
+                   loc="lower center", ncol=len(handles),
+                   bbox_to_anchor=(0.5, -0.04))
+        axes[0].legend().remove()
 
     fig.tight_layout()
     save(fig, "fig4_prevalence")
@@ -307,8 +348,8 @@ def figure_6():
     date_col = prevalence.columns[0]
     prevalence[date_col] = pd.to_datetime(prevalence[date_col])
     series = pd.to_numeric(prevalence[topic], errors="coerce")
-    observed = set(prevalence.loc[series.notna(), date_col])
-    window_start = min(observed)
+    usable = set(prevalence.loc[series.notna(), date_col])
+    collected, window_start = collection_status()
 
     trend_date = trends.columns[0]
     trends[trend_date] = pd.to_datetime(trends[trend_date])
@@ -317,7 +358,7 @@ def figure_6():
 
     fig, (upper, lower) = plt.subplots(2, 1, figsize=(9, 4.8), sharex=True)
 
-    shade_gaps(upper, list(prevalence[date_col]), observed)
+    shade_gaps(upper, list(prevalence[date_col]), collected, usable)
     upper.plot(prevalence[date_col], series, "o-", color=accent, markersize=4)
     upper.set_ylabel("Relative prevalence", fontsize=8)
     upper.axvline(window_start, color=ink, linewidth=1)
@@ -371,7 +412,7 @@ def figure_7():
     for y, value in enumerate(frame[lag_col].astype(float)):
         axis.annotate(f"{value:.0f}d", (value, y), textcoords="offset points",
                       xytext=(4, 0), va="center", fontsize=7.5, color=ink)
-    axis.set_xlabel("Days between retrospective appearance and prospective detectability",
+    axis.set_xlabel("Days between retrospective appearance and topic formability",
                     fontsize=8)
     axis.invert_yaxis()
     axis.grid(axis="y", visible=False)
